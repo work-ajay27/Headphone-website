@@ -112,13 +112,22 @@
 
 .flipkart-login-modal-bg {
   min-height: 100vh;
-  background: rgba(0,0,0,0.5);
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('/src/resources/login image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1000;
+  overflow: hidden;
 }
 
 .flipkart-login-modal {
@@ -132,7 +141,7 @@
 }
 
 .flipkart-login-left {
-  background: #2874f0;
+  background: #FF3B3F;
   color: #fff;
   width: 40%;
   min-width: 240px;
@@ -208,7 +217,7 @@
 }
 
 .flipkart-login-btn:hover {
-  background: #fb641b;
+  background: #FF3B3F;
 }
 
 .google-login-btn {
@@ -270,11 +279,14 @@
     width: 98vw;
     min-width: 0;
   }
-  .flipkart-login-left, .flipkart-login-right {
+
+  .flipkart-login-left,
+  .flipkart-login-right {
     width: 100%;
     min-width: 0;
     padding: 32px 16px 16px 16px;
   }
+
   .flipkart-login-bottom-link {
     margin-top: 18px;
   }

@@ -5,6 +5,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,6 +16,14 @@ function Login() {
         setError('');
         // TODO: Add authentication logic
         alert(`Logged in as: ${email}`);
+    };
+
+    const handleGoogleLogin = () => {
+        setLoading(true);
+        setError('');
+        
+        // Redirect to Spring Boot OAuth endpoint
+        window.location.href = 'http://localhost:8080/api/auth/google';
     };
 
     return (
@@ -55,10 +64,20 @@ function Login() {
                         />
                         {error && <div className="flipkart-login-error">{error}</div>}
                         <button type="submit" className="flipkart-login-btn">Login</button>
-                        <button type="button" className="google-login-btn" onClick={() => alert('Google login coming soon!')}>
-                            <i className='bx bxs-headphone-alt-2' style={{ color: '#000000' }}></i>
-                            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" className="google-logo" />
-                            Login with Google
+                        <button 
+                            type="button" 
+                            className="google-login-btn" 
+                            onClick={handleGoogleLogin}
+                            disabled={loading}
+                        >
+                            {loading ? (
+                                <span>Loading...</span>
+                            ) : (
+                                <>
+                                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" className="google-logo" />
+                                    Login with Google
+                                </>
+                            )}
                         </button>
                     </form>
                     <div className="flipkart-login-bottom-link">
