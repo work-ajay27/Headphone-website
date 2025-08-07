@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import '../Login/Login.css';  
-import { Link } from 'react-router-dom';
 
 function SignUp() {
   const [name, setName] = useState('');
@@ -8,6 +8,7 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,9 +25,16 @@ function SignUp() {
     alert(`Account created for: ${name} (${email})`);
   };
 
+  const handleClose = () => {
+    navigate('/');
+  };
+
   return (
     <div className="flipkart-login-modal-bg">
       <div className="flipkart-login-modal">
+        <button className="close-button" onClick={handleClose}>
+          <i className='bx bx-x'></i>
+        </button>
         <div className="flipkart-login-left">
           <h2>Sign Up</h2>
           <p>Create your account to access the latest headphones, exclusive deals, and personalized recommendations!</p>

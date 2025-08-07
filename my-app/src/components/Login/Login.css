@@ -131,6 +131,7 @@
 }
 
 .flipkart-login-modal {
+  position: relative;
   display: flex;
   width: 700px;
   max-width: 95vw;
@@ -290,4 +291,29 @@
   .flipkart-login-bottom-link {
     margin-top: 18px;
   }
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  transform: scale(1.1);
+}
+
+.close-button i {
+  font-size: 32px;
+  color: #433c3c;
 }

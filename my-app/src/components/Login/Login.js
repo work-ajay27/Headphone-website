@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function Login() {
@@ -6,6 +7,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,9 +28,16 @@ function Login() {
         window.location.href = 'http://localhost:8080/api/auth/google';
     };
 
+    const handleClose = () => {
+        navigate('/');
+    };
+
     return (
         <div className="flipkart-login-modal-bg">
             <div className="flipkart-login-modal">
+                <button className="close-button" onClick={handleClose}>
+                    <i className='bx bx-x'></i>
+                </button>
                 <div className="flipkart-login-left">
                     <h2>Login</h2>
                     <p>Get access to your Orders, Wishlist and Recommendations</p>
