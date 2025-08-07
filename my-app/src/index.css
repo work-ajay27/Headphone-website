@@ -2,7 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom animations for hero slider */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+@keyframes fadeInDelay {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDelay2 {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fadeInDelay 0.8s ease-out 0.2s both;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fadeInDelay2 0.8s ease-out 0.4s both;
+}
 
 body {
   margin: 0;
