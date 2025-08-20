@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../contexts/CartContext';
 
 function Home() {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const { addToCart } = useCart();
 
     //  slider data 
     const heroSlides = [
@@ -205,7 +207,7 @@ function Home() {
                                     <h3 className="font-semibold text-gray-900 mb-2">{product.name}</h3>
                                     <div className="flex justify-between items-center">
                                         <span className="text-xl font-bold text-red-600">{product.price}</span>
-                                        <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200">
+                                        <button onClick={() => addToCart(product)} className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200">
                                             Add to Cart
                                         </button>
                                     </div>

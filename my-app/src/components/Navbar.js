@@ -4,12 +4,13 @@ import logo from '../resources/Logo.png';
 import cartIcon from '../resources/cart.png';
 import userIcon from '../resources/user.png';
 import wishlistIcon from '../resources/online-shopping.png';
+import { useCart } from '../contexts/CartContext';
 
 function Navbar() {
     const navigate = useNavigate();
     const [showUserDropdown, setShowUserDropdown] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const cartCount = 2; // Example cart count
+    const { cartCount } = useCart();
 
     return (
         <nav className="bg-white shadow-lg border-b border-gray-100 sticky top-0 z-50">
@@ -70,12 +71,28 @@ function Navbar() {
 
                     {/* Right side icons */}
                     <div className="hidden md:flex items-center space-x-4">
-                        {/* Search */}
+                        {/* Wishlist placeholder replaced with Cart link */}
                         <Link
                             to="/cart"
-                            className="p-2 text-gray-700 hover:text-red-600 hover:bg-gray-50 rounded-full transition-all duration-200"
+                            className="relative p-2 text-gray-700 hover:text-red-600 hover:bg-gray-50 rounded-full transition-all duration-200"
                         >
-                            <img src={wishlistIcon} alt="Search" className="h-6 w-6" />
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                className="h-6 w-6"
+                                strokeWidth="1.8"
+                            >
+                                <path d="M3 3h2l.4 2M7 13h10l3-8H6.4" strokeLinecap="round" strokeLinejoin="round" />
+                                <circle cx="9" cy="19" r="1.5" />
+                                <circle cx="17" cy="19" r="1.5" />
+                            </svg>
+                            {cartCount > 0 && (
+                                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
+                                    {cartCount}
+                                </span>
+                            )}
                         </Link>
 
 
