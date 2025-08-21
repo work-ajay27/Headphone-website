@@ -25,6 +25,7 @@ function writeCartToStorage(items) {
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState(() => readCartFromStorage());
+  const [lastAddedToast, setLastAddedToast] = useState(null);
 
   useEffect(() => {
     writeCartToStorage(cartItems);
@@ -55,6 +56,9 @@ export function CartProvider({ children }) {
         },
       ];
     });
+
+    // trigger toast info
+    setLastAddedToast({ id: Date.now(), name: product.name || 'Item' });
   };
 
   const removeFromCart = (productId) => {
@@ -85,7 +89,8 @@ export function CartProvider({ children }) {
     clearCart,
     cartCount,
     cartTotal,
-  }), [cartItems, cartCount, cartTotal]);
+    lastAddedToast,
+  }), [cartItems, cartCount, cartTotal, lastAddedToast]);
 
   return (
     <CartContext.Provider value={value}>

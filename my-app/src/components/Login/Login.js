@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../contexts/UserContext';
 import './Login.css';
 
 function Login() {
@@ -8,6 +9,7 @@ function Login() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { login } = useUser();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,8 +18,20 @@ function Login() {
             return;
         }
         setError('');
-        // TODO: Add authentication logic
-        alert(`Logged in as: ${email}`);
+        setLoading(true);
+        
+        // Mock authentication - in real app, this would be an API call
+        setTimeout(() => {
+            const userData = {
+                name: email.split('@')[0], // Use email prefix as name
+                email: email,
+                phone: '',
+                address: ''
+            };
+            login(userData);
+            setLoading(false);
+            navigate('/');
+        }, 1000);
     };
 
     const handleGoogleLogin = () => {
@@ -72,7 +86,9 @@ function Login() {
                             required
                         />
                         {error && <div className="flipkart-login-error">{error}</div>}
-                        <button type="submit" className="flipkart-login-btn">Login</button>
+                        <button type="submit" className="flipkart-login-btn" disabled={loading}>
+                            {loading ? 'Logging in...' : 'Login'}
+                        </button>
                         <button 
                             type="button" 
                             className="google-login-btn" 

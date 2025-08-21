@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#111827"/>
+  <rect x="60" y="130" width="280" height="10" rx="5" fill="#ef4444"/>
+  <circle cx="80" cy="170" r="26" fill="#9ca3af"/>
+  <circle cx="320" cy="170" r="26" fill="#9ca3af"/>
+  <text x="200" y="270" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#e5e7eb" text-anchor="middle">boAt Rockerz 255</text>
+</svg>
+
+
