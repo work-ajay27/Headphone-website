@@ -11,6 +11,7 @@ import ProductDetail from './components/ProductDetail';
 import Wishlist from './components/Wishlist';
 import Profile from './components/Profile';
 import Checkout from './components/Checkout';
+import Deals from './components/Deals';
 import { CartProvider } from './contexts/CartContext';
 import { WishlistProvider } from './contexts/WishlistContext';
 import { UserProvider } from './contexts/UserContext';
@@ -34,6 +35,7 @@ function App() {
               <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/deals" element={<Deals />} />
             </Routes>
           </div>
         </WishlistProvider>

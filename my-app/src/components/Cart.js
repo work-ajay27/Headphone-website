@@ -72,8 +72,8 @@ function Cart() {
                   <span>Subtotal</span>
                   <span>{formatCurrencyINR(cartTotal)}</span>
                 </div>
-                <button onClick={() => navigate('/checkout')} className="w-full bg-red-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-200">
-                  Checkout
+                <button onClick={() => navigate('/checkout')} className="w-full bg-green-600 text-white px-4 py-3 rounded-lg font-semibold ">
+                  Buy Now
                 </button>
                 <p className="text-xs text-gray-500 mt-3">Taxes and shipping calculated at checkout.</p>
               </div>

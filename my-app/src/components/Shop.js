@@ -9,7 +9,10 @@ const filterOptions = [
   { key: 'all', label: 'All' },
   { key: 'wireless', label: 'Wireless' },
   { key: 'wired', label: 'Wired' },
+  { key: 'earbuds', label: 'Earbuds' },
   { key: 'gaming', label: 'Gaming' },
+  { key: 'anc', label: 'ANC' },
+  { key: 'sports', label: 'Sports' },
 ];
 
 const sortOptions = [
